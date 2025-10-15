@@ -64,11 +64,11 @@ const Admin = () => {
 
   const getStatusColor = (status: Order["status"]) => {
     switch (status) {
-      case "pending": return "bg-yellow-500";
+      case "pending": return "bg-amber-500";
       case "processing": return "bg-blue-500";
-      case "completed": return "bg-green-500";
-      case "rejected": return "bg-red-500";
-      default: return "bg-gray-500";
+      case "completed": return "bg-emerald-500";
+      case "rejected": return "bg-rose-500";
+      default: return "bg-slate-500";
     }
   };
 
@@ -84,13 +84,17 @@ const Admin = () => {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-cyan-900 flex items-center justify-center p-4">
-        <Card className="w-full max-w-md border-purple-500/20 bg-black/40 backdrop-blur-sm">
+      <div className="min-h-screen bg-gradient-to-br from-violet-100 via-sky-50 to-cyan-100 flex items-center justify-center p-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNhNzhiZmEiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMTQgMi42ODYtNiA2LTZzNiAyLjY4NiA2IDYtMi42ODYgNi02IDYtNi0yLjY4Ni02LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
+        <Card className="w-full max-w-md border border-white/60 bg-white/40 backdrop-blur-2xl shadow-2xl shadow-violet-200/50 relative z-10">
           <CardHeader>
-            <CardTitle className="text-3xl bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <div className="w-16 h-16 rounded-3xl bg-gradient-to-br from-violet-400 to-cyan-400 flex items-center justify-center mb-4 mx-auto shadow-xl shadow-violet-300/50">
+              <Icon name="Shield" className="text-white" size={32} />
+            </div>
+            <CardTitle className="text-4xl bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent text-center">
               Вход в админку
             </CardTitle>
-            <CardDescription className="text-gray-400">
+            <CardDescription className="text-slate-600 text-center text-lg">
               Введите пароль для доступа к панели управления
             </CardDescription>
           </CardHeader>
@@ -101,11 +105,11 @@ const Admin = () => {
                 placeholder="Пароль"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="bg-black/50 border-purple-500/30 text-white"
+                className="bg-white/60 backdrop-blur-md border-white/60 text-slate-800 h-14 text-lg shadow-lg"
               />
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700"
+                className="w-full bg-gradient-to-r from-violet-500 to-cyan-500 hover:from-violet-600 hover:to-cyan-600 text-white h-14 text-lg shadow-xl hover:scale-[1.02] transition-all"
               >
                 Войти
               </Button>
@@ -117,47 +121,49 @@ const Admin = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-cyan-900">
-      <header className="border-b border-white/10 backdrop-blur-sm bg-black/20">
-        <div className="container mx-auto px-4 py-4">
+    <div className="min-h-screen bg-gradient-to-br from-violet-100 via-sky-50 to-cyan-100 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNhNzhiZmEiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMTQgMi42ODYtNiA2LTZzNiAyLjY4NiA2IDYtMi42ODYgNi02IDYtNi0yLjY4Ni02LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
+      
+      <header className="relative border-b border-white/40 backdrop-blur-xl bg-white/30 shadow-lg">
+        <div className="container mx-auto px-4 py-5">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center">
-                <Icon name="Shield" className="text-white" size={24} />
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-400 to-cyan-400 flex items-center justify-center shadow-xl shadow-violet-300/50">
+                <Icon name="Shield" className="text-white" size={26} />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="text-3xl font-bold bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent">
                 Админ-панель
               </span>
             </div>
             <Button
               variant="outline"
               onClick={() => setIsAuthenticated(false)}
-              className="border-purple-500/30 text-white hover:bg-purple-500/20"
+              className="border-white/60 bg-white/40 backdrop-blur-md text-slate-700 hover:bg-white/60 shadow-lg"
             >
-              <Icon name="LogOut" className="mr-2" size={16} />
+              <Icon name="LogOut" className="mr-2" size={18} />
               Выйти
             </Button>
           </div>
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-6 mb-8">
+      <main className="container mx-auto px-4 py-12 relative z-10">
+        <div className="grid md:grid-cols-4 gap-6 mb-10">
           {[
-            { label: "Всего заказов", value: orders.length, icon: "ShoppingCart", color: "purple" },
-            { label: "В ожидании", value: orders.filter(o => o.status === "pending").length, icon: "Clock", color: "yellow" },
-            { label: "Завершено", value: orders.filter(o => o.status === "completed").length, icon: "CheckCircle2", color: "green" },
-            { label: "Выручка", value: `${orders.filter(o => o.status === "completed").reduce((sum, o) => sum + o.amount, 0)}₽`, icon: "DollarSign", color: "cyan" },
+            { label: "Всего заказов", value: orders.length, icon: "ShoppingCart", gradient: "from-violet-400 to-purple-400" },
+            { label: "В ожидании", value: orders.filter(o => o.status === "pending").length, icon: "Clock", gradient: "from-amber-400 to-orange-400" },
+            { label: "Завершено", value: orders.filter(o => o.status === "completed").length, icon: "CheckCircle2", gradient: "from-emerald-400 to-green-400" },
+            { label: "Выручка", value: `${orders.filter(o => o.status === "completed").reduce((sum, o) => sum + o.amount, 0)}₽`, icon: "DollarSign", gradient: "from-cyan-400 to-blue-400" },
           ].map((stat, index) => (
-            <Card key={index} className="border-purple-500/20 bg-black/40 backdrop-blur-sm">
+            <Card key={index} className="border border-white/60 bg-white/40 backdrop-blur-2xl shadow-xl shadow-violet-200/30 hover:shadow-2xl hover:scale-105 transition-all">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-gray-400 text-sm">{stat.label}</p>
-                    <p className="text-3xl font-bold text-white mt-2">{stat.value}</p>
+                    <p className="text-slate-600 text-sm font-medium">{stat.label}</p>
+                    <p className="text-4xl font-bold text-slate-800 mt-2">{stat.value}</p>
                   </div>
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-${stat.color}-500 to-${stat.color}-600 flex items-center justify-center`}>
-                    <Icon name={stat.icon as any} className="text-white" size={24} />
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center shadow-xl`}>
+                    <Icon name={stat.icon as any} className="text-white" size={28} />
                   </div>
                 </div>
               </CardContent>
@@ -165,19 +171,19 @@ const Admin = () => {
           ))}
         </div>
 
-        <Card className="border-purple-500/20 bg-black/40 backdrop-blur-sm">
+        <Card className="border border-white/60 bg-white/40 backdrop-blur-2xl shadow-2xl shadow-violet-200/50">
           <CardHeader>
-            <CardTitle className="text-2xl bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <CardTitle className="text-3xl bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent">
               Управление заказами
             </CardTitle>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="all" className="w-full">
-              <TabsList className="bg-black/50 border border-purple-500/20">
-                <TabsTrigger value="all">Все</TabsTrigger>
-                <TabsTrigger value="pending">Ожидают</TabsTrigger>
-                <TabsTrigger value="processing">В обработке</TabsTrigger>
-                <TabsTrigger value="completed">Завершены</TabsTrigger>
+              <TabsList className="bg-white/60 backdrop-blur-md border border-white/60 shadow-lg">
+                <TabsTrigger value="all" className="data-[state=active]:bg-white/80">Все</TabsTrigger>
+                <TabsTrigger value="pending" className="data-[state=active]:bg-white/80">Ожидают</TabsTrigger>
+                <TabsTrigger value="processing" className="data-[state=active]:bg-white/80">В обработке</TabsTrigger>
+                <TabsTrigger value="completed" className="data-[state=active]:bg-white/80">Завершены</TabsTrigger>
               </TabsList>
               
               <TabsContent value="all" className="mt-6">
@@ -232,64 +238,67 @@ interface OrdersTableProps {
 
 const OrdersTable = ({ orders, onUpdateStatus, getStatusColor, getStatusText }: OrdersTableProps) => {
   return (
-    <Table>
-      <TableHeader>
-        <TableRow className="border-purple-500/20 hover:bg-purple-500/10">
-          <TableHead className="text-gray-300">ID</TableHead>
-          <TableHead className="text-gray-300">Alipay ID</TableHead>
-          <TableHead className="text-gray-300">Сумма</TableHead>
-          <TableHead className="text-gray-300">Дата</TableHead>
-          <TableHead className="text-gray-300">Статус</TableHead>
-          <TableHead className="text-gray-300">Действия</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {orders.map((order) => (
-          <TableRow key={order.id} className="border-purple-500/20 hover:bg-purple-500/5">
-            <TableCell className="text-white font-medium">{order.id}</TableCell>
-            <TableCell className="text-gray-300">{order.alipayId}</TableCell>
-            <TableCell className="text-white font-semibold">{order.amount}₽</TableCell>
-            <TableCell className="text-gray-400">{order.date}</TableCell>
-            <TableCell>
-              <Badge className={`${getStatusColor(order.status)} text-white`}>
-                {getStatusText(order.status)}
-              </Badge>
-            </TableCell>
-            <TableCell>
-              <div className="flex gap-2">
-                {order.status !== "completed" && (
-                  <Button
-                    size="sm"
-                    onClick={() => onUpdateStatus(order.id, "completed")}
-                    className="bg-green-600 hover:bg-green-700"
-                  >
-                    <Icon name="Check" size={16} />
-                  </Button>
-                )}
-                {order.status === "pending" && (
-                  <Button
-                    size="sm"
-                    onClick={() => onUpdateStatus(order.id, "processing")}
-                    className="bg-blue-600 hover:bg-blue-700"
-                  >
-                    <Icon name="Clock" size={16} />
-                  </Button>
-                )}
-                {order.status !== "rejected" && (
-                  <Button
-                    size="sm"
-                    variant="destructive"
-                    onClick={() => onUpdateStatus(order.id, "rejected")}
-                  >
-                    <Icon name="X" size={16} />
-                  </Button>
-                )}
-              </div>
-            </TableCell>
+    <div className="bg-white/30 backdrop-blur-md rounded-3xl border border-white/40 shadow-lg overflow-hidden">
+      <Table>
+        <TableHeader>
+          <TableRow className="border-white/40 hover:bg-white/20">
+            <TableHead className="text-slate-700 font-semibold">ID</TableHead>
+            <TableHead className="text-slate-700 font-semibold">Alipay ID</TableHead>
+            <TableHead className="text-slate-700 font-semibold">Сумма</TableHead>
+            <TableHead className="text-slate-700 font-semibold">Дата</TableHead>
+            <TableHead className="text-slate-700 font-semibold">Статус</TableHead>
+            <TableHead className="text-slate-700 font-semibold">Действия</TableHead>
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHeader>
+        <TableBody>
+          {orders.map((order) => (
+            <TableRow key={order.id} className="border-white/40 hover:bg-white/30">
+              <TableCell className="text-slate-800 font-semibold">{order.id}</TableCell>
+              <TableCell className="text-slate-700">{order.alipayId}</TableCell>
+              <TableCell className="text-slate-800 font-bold">{order.amount}₽</TableCell>
+              <TableCell className="text-slate-600">{order.date}</TableCell>
+              <TableCell>
+                <Badge className={`${getStatusColor(order.status)} text-white shadow-lg`}>
+                  {getStatusText(order.status)}
+                </Badge>
+              </TableCell>
+              <TableCell>
+                <div className="flex gap-2">
+                  {order.status !== "completed" && (
+                    <Button
+                      size="sm"
+                      onClick={() => onUpdateStatus(order.id, "completed")}
+                      className="bg-emerald-500 hover:bg-emerald-600 shadow-lg hover:scale-110 transition-transform"
+                    >
+                      <Icon name="Check" size={16} />
+                    </Button>
+                  )}
+                  {order.status === "pending" && (
+                    <Button
+                      size="sm"
+                      onClick={() => onUpdateStatus(order.id, "processing")}
+                      className="bg-blue-500 hover:bg-blue-600 shadow-lg hover:scale-110 transition-transform"
+                    >
+                      <Icon name="Clock" size={16} />
+                    </Button>
+                  )}
+                  {order.status !== "rejected" && (
+                    <Button
+                      size="sm"
+                      variant="destructive"
+                      onClick={() => onUpdateStatus(order.id, "rejected")}
+                      className="shadow-lg hover:scale-110 transition-transform"
+                    >
+                      <Icon name="X" size={16} />
+                    </Button>
+                  )}
+                </div>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
 };
 

@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Icon from "@/components/ui/icon";
 import { useToast } from "@/hooks/use-toast";
@@ -22,29 +21,31 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-cyan-900">
-      <header className="border-b border-white/10 backdrop-blur-sm bg-black/20">
-        <div className="container mx-auto px-4 py-4">
+    <div className="min-h-screen bg-gradient-to-br from-violet-100 via-sky-50 to-cyan-100 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNhNzhiZmEiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMTQgMi42ODYtNiA2LTZzNiAyLjY4NiA2IDYtMi42ODYgNi02IDYtNi0yLjY4Ni02LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
+      
+      <header className="relative border-b border-white/40 backdrop-blur-xl bg-white/30 shadow-lg">
+        <div className="container mx-auto px-4 py-5">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center">
-                <Icon name="Zap" className="text-white" size={24} />
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-400 to-cyan-400 flex items-center justify-center shadow-xl shadow-violet-300/50">
+                <Icon name="Sparkles" className="text-white" size={26} />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="text-3xl font-bold bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent">
                 AliPay Fast
               </span>
             </div>
-            <nav className="hidden md:flex gap-6">
-              <a href="#replenish" className="text-gray-300 hover:text-white transition-colors">
+            <nav className="hidden md:flex gap-8">
+              <a href="#replenish" className="text-slate-700 hover:text-violet-600 transition-colors font-medium">
                 Пополнение
               </a>
-              <a href="#instructions" className="text-gray-300 hover:text-white transition-colors">
+              <a href="#instructions" className="text-slate-700 hover:text-violet-600 transition-colors font-medium">
                 Инструкция
               </a>
-              <a href="#support" className="text-gray-300 hover:text-white transition-colors">
+              <a href="#support" className="text-slate-700 hover:text-violet-600 transition-colors font-medium">
                 Поддержка
               </a>
-              <a href="#faq" className="text-gray-300 hover:text-white transition-colors">
+              <a href="#faq" className="text-slate-700 hover:text-violet-600 transition-colors font-medium">
                 FAQ
               </a>
             </nav>
@@ -52,30 +53,35 @@ const Index = () => {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-12">
-        <section id="hero" className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-            Мгновенное пополнение Alipay
+      <main className="container mx-auto px-4 py-16 relative z-10">
+        <section id="hero" className="text-center mb-20">
+          <div className="inline-block mb-4 px-6 py-2 rounded-full bg-white/60 backdrop-blur-md border border-white/60 shadow-lg">
+            <span className="text-sm font-semibold bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent">
+              ⚡ Мгновенные переводы 24/7
+            </span>
+          </div>
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-violet-600 via-purple-500 to-cyan-500 bg-clip-text text-transparent leading-tight">
+            Пополнение Alipay
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Быстрые платежи без комиссии. Перевод за 60 секунд.
+          <p className="text-2xl text-slate-600 max-w-2xl mx-auto font-light">
+            Переводы за 60 секунд без комиссии
           </p>
         </section>
 
-        <section id="replenish" className="mb-16">
-          <Card className="max-w-2xl mx-auto border-purple-500/20 bg-black/40 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-3xl bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+        <section id="replenish" className="mb-20">
+          <Card className="max-w-2xl mx-auto border border-white/60 bg-white/40 backdrop-blur-2xl shadow-2xl shadow-violet-200/50">
+            <CardHeader className="pb-8">
+              <CardTitle className="text-4xl bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent">
                 Форма пополнения
               </CardTitle>
-              <CardDescription className="text-gray-400">
+              <CardDescription className="text-slate-600 text-lg">
                 Заполните данные для мгновенного перевода
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="alipayId" className="text-gray-300">
+                <div className="space-y-3">
+                  <Label htmlFor="alipayId" className="text-slate-700 text-base font-medium">
                     Alipay ID
                   </Label>
                   <Input
@@ -83,12 +89,12 @@ const Index = () => {
                     placeholder="Введите ваш Alipay ID"
                     value={alipayId}
                     onChange={(e) => setAlipayId(e.target.value)}
-                    className="bg-black/50 border-purple-500/30 text-white"
+                    className="bg-white/60 backdrop-blur-md border-white/60 text-slate-800 h-14 text-lg shadow-lg focus:shadow-violet-300/50 transition-shadow"
                     required
                   />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="amount" className="text-gray-300">
+                <div className="space-y-3">
+                  <Label htmlFor="amount" className="text-slate-700 text-base font-medium">
                     Сумма пополнения (₽)
                   </Label>
                   <Input
@@ -97,18 +103,18 @@ const Index = () => {
                     placeholder="1000"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
-                    className="bg-black/50 border-purple-500/30 text-white"
+                    className="bg-white/60 backdrop-blur-md border-white/60 text-slate-800 h-14 text-lg shadow-lg focus:shadow-violet-300/50 transition-shadow"
                     required
                   />
                 </div>
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-4 gap-3">
                   {[500, 1000, 3000, 5000].map((preset) => (
                     <Button
                       key={preset}
                       type="button"
                       variant="outline"
                       onClick={() => setAmount(preset.toString())}
-                      className="bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-purple-500/30 hover:from-purple-500/30 hover:to-cyan-500/30"
+                      className="bg-white/50 backdrop-blur-md border-white/60 hover:bg-white/70 hover:shadow-lg hover:scale-105 transition-all text-slate-700 font-semibold h-12"
                     >
                       {preset}₽
                     </Button>
@@ -116,9 +122,9 @@ const Index = () => {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white font-semibold py-6 text-lg"
+                  className="w-full bg-gradient-to-r from-violet-500 to-cyan-500 hover:from-violet-600 hover:to-cyan-600 text-white font-semibold py-7 text-xl shadow-2xl shadow-violet-300/50 hover:shadow-violet-400/60 hover:scale-[1.02] transition-all"
                 >
-                  <Icon name="Zap" className="mr-2" size={20} />
+                  <Icon name="Zap" className="mr-2" size={24} />
                   Пополнить сейчас
                 </Button>
               </form>
@@ -126,11 +132,11 @@ const Index = () => {
           </Card>
         </section>
 
-        <section id="instructions" className="mb-16">
-          <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+        <section id="instructions" className="mb-20">
+          <h2 className="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent">
             Как это работает
           </h2>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
                 icon: "UserPlus",
@@ -150,14 +156,14 @@ const Index = () => {
             ].map((step, index) => (
               <Card
                 key={index}
-                className="border-purple-500/20 bg-gradient-to-br from-purple-900/30 to-cyan-900/30 backdrop-blur-sm hover:scale-105 transition-transform"
+                className="border border-white/60 bg-white/40 backdrop-blur-2xl shadow-xl shadow-violet-200/30 hover:shadow-2xl hover:shadow-violet-300/50 hover:scale-105 transition-all group"
               >
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center mb-4 mx-auto">
-                    <Icon name={step.icon as any} className="text-white" size={32} />
+                <CardHeader className="pb-6">
+                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-violet-400 to-cyan-400 flex items-center justify-center mb-6 mx-auto shadow-xl shadow-violet-300/50 group-hover:scale-110 transition-transform">
+                    <Icon name={step.icon as any} className="text-white" size={36} />
                   </div>
-                  <CardTitle className="text-center text-white">{step.title}</CardTitle>
-                  <CardDescription className="text-center text-gray-400">
+                  <CardTitle className="text-center text-slate-800 text-2xl">{step.title}</CardTitle>
+                  <CardDescription className="text-center text-slate-600 text-base leading-relaxed">
                     {step.description}
                   </CardDescription>
                 </CardHeader>
@@ -166,47 +172,47 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="support" className="mb-16">
-          <Card className="max-w-4xl mx-auto border-purple-500/20 bg-black/40 backdrop-blur-sm">
+        <section id="support" className="mb-20">
+          <Card className="max-w-4xl mx-auto border border-white/60 bg-white/40 backdrop-blur-2xl shadow-2xl shadow-violet-200/50">
             <CardHeader>
-              <CardTitle className="text-3xl bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              <CardTitle className="text-4xl bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent">
                 Чат поддержки
               </CardTitle>
-              <CardDescription className="text-gray-400">
+              <CardDescription className="text-slate-600 text-lg">
                 Наши операторы онлайн 24/7
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="bg-black/60 rounded-xl p-6 mb-4 h-96 overflow-y-auto space-y-4">
+              <div className="bg-white/30 backdrop-blur-md rounded-3xl p-6 mb-6 h-96 overflow-y-auto space-y-4 border border-white/40 shadow-inner">
                 <div className="flex gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
-                    <Icon name="Headphones" className="text-white" size={16} />
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-400 to-cyan-400 flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <Icon name="Headphones" className="text-white" size={20} />
                   </div>
-                  <div className="bg-purple-900/40 rounded-2xl p-4 max-w-md">
-                    <p className="text-white">
+                  <div className="bg-white/70 backdrop-blur-md rounded-3xl rounded-tl-sm p-5 max-w-md shadow-lg border border-white/60">
+                    <p className="text-slate-800">
                       Здравствуйте! Чем могу помочь?
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-3">
                 <Input
                   placeholder="Введите сообщение..."
-                  className="bg-black/50 border-purple-500/30 text-white"
+                  className="bg-white/60 backdrop-blur-md border-white/60 text-slate-800 h-14 shadow-lg"
                 />
-                <Button className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700">
-                  <Icon name="Send" size={20} />
+                <Button className="bg-gradient-to-r from-violet-500 to-cyan-500 hover:from-violet-600 hover:to-cyan-600 shadow-xl h-14 px-6 hover:scale-105 transition-transform">
+                  <Icon name="Send" size={22} />
                 </Button>
               </div>
             </CardContent>
           </Card>
         </section>
 
-        <section id="faq" className="mb-16">
-          <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+        <section id="faq" className="mb-20">
+          <h2 className="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent">
             Часто задаваемые вопросы
           </h2>
-          <Accordion type="single" collapsible className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="max-w-3xl mx-auto space-y-4">
             {[
               {
                 question: "Как быстро приходят деньги?",
@@ -232,12 +238,12 @@ const Index = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="border-purple-500/20 bg-black/40 backdrop-blur-sm px-6 mb-2 rounded-xl"
+                className="border border-white/60 bg-white/40 backdrop-blur-2xl px-6 rounded-3xl shadow-lg hover:shadow-xl transition-shadow"
               >
-                <AccordionTrigger className="text-white hover:text-purple-400">
+                <AccordionTrigger className="text-slate-800 hover:text-violet-600 text-lg font-medium">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-400">
+                <AccordionContent className="text-slate-600 text-base leading-relaxed">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -246,9 +252,9 @@ const Index = () => {
         </section>
       </main>
 
-      <footer className="border-t border-white/10 backdrop-blur-sm bg-black/20 py-8">
-        <div className="container mx-auto px-4 text-center text-gray-400">
-          <p>© 2024 AliPay Fast. Все права защищены.</p>
+      <footer className="relative border-t border-white/40 backdrop-blur-xl bg-white/30 py-10 shadow-lg">
+        <div className="container mx-auto px-4 text-center text-slate-600">
+          <p className="text-lg">© 2024 AliPay Fast. Все права защищены.</p>
         </div>
       </footer>
     </div>
