@@ -13,6 +13,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import ParticlesBackground from "@/components/ParticlesBackground";
+import MouseGlow from "@/components/MouseGlow";
 
 interface Order {
   id: string;
@@ -84,17 +86,19 @@ const Admin = () => {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-violet-100 via-sky-50 to-cyan-100 flex items-center justify-center p-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNhNzhiZmEiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMTQgMi42ODYtNiA2LTZzNiAyLjY4NiA2IDYtMi42ODYgNi02IDYtNi0yLjY4Ni02LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
-        <Card className="w-full max-w-md border border-white/60 bg-white/40 backdrop-blur-2xl shadow-2xl shadow-violet-200/50 relative z-10">
+      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 flex items-center justify-center p-4 relative overflow-hidden">
+        <ParticlesBackground />
+        <MouseGlow />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)]"></div>
+        <Card className="w-full max-w-md border border-white/20 bg-white/5 backdrop-blur-2xl shadow-2xl shadow-purple-500/30 relative z-10 animate-scale-in">
           <CardHeader>
-            <div className="w-16 h-16 rounded-3xl bg-gradient-to-br from-violet-400 to-cyan-400 flex items-center justify-center mb-4 mx-auto shadow-xl shadow-violet-300/50">
+            <div className="w-16 h-16 rounded-3xl bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center mb-4 mx-auto shadow-xl shadow-purple-500/50 animate-pulse-glow">
               <Icon name="Shield" className="text-white" size={32} />
             </div>
-            <CardTitle className="text-4xl bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent text-center">
+            <CardTitle className="text-4xl bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent text-center">
               Вход в админку
             </CardTitle>
-            <CardDescription className="text-slate-600 text-center text-lg">
+            <CardDescription className="text-gray-400 text-center text-lg">
               Введите пароль для доступа к панели управления
             </CardDescription>
           </CardHeader>
@@ -105,11 +109,11 @@ const Admin = () => {
                 placeholder="Пароль"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="bg-white/60 backdrop-blur-md border-white/60 text-slate-800 h-14 text-lg shadow-lg"
+                className="bg-white/10 backdrop-blur-xl border-white/20 text-white placeholder:text-gray-500 h-14 text-lg shadow-lg focus:shadow-purple-500/50"
               />
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-violet-500 to-cyan-500 hover:from-violet-600 hover:to-cyan-600 text-white h-14 text-lg shadow-xl hover:scale-[1.02] transition-all"
+                className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:shadow-2xl hover:shadow-purple-500/50 text-white h-14 text-lg hover:scale-[1.02] transition-all"
               >
                 Войти
               </Button>
@@ -121,24 +125,26 @@ const Admin = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-100 via-sky-50 to-cyan-100 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNhNzhiZmEiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMTQgMi42ODYtNiA2LTZzNiAyLjY4NiA2IDYtMi42ODYgNi02IDYtNi0yLjY4Ni02LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 relative overflow-hidden">
+      <ParticlesBackground />
+      <MouseGlow />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)]"></div>
       
-      <header className="relative border-b border-white/40 backdrop-blur-xl bg-white/30 shadow-lg">
-        <div className="container mx-auto px-4 py-5">
+      <header className="relative border-b border-white/10 backdrop-blur-2xl bg-white/5 shadow-2xl animate-slide-up">
+        <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-400 to-cyan-400 flex items-center justify-center shadow-xl shadow-violet-300/50">
-                <Icon name="Shield" className="text-white" size={26} />
+            <div className="flex items-center gap-3 group">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center shadow-xl shadow-purple-500/50 group-hover:scale-110 transition-all duration-300 animate-pulse-glow">
+                <Icon name="Shield" className="text-white" size={28} />
               </div>
-              <span className="text-3xl font-bold bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent">
+              <span className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent animate-gradient">
                 Админ-панель
               </span>
             </div>
             <Button
               variant="outline"
               onClick={() => setIsAuthenticated(false)}
-              className="border-white/60 bg-white/40 backdrop-blur-md text-slate-700 hover:bg-white/60 shadow-lg"
+              className="border-white/20 bg-white/5 backdrop-blur-xl text-white hover:bg-white/10 shadow-lg hover:scale-105 transition-all"
             >
               <Icon name="LogOut" className="mr-2" size={18} />
               Выйти
@@ -155,12 +161,12 @@ const Admin = () => {
             { label: "Завершено", value: orders.filter(o => o.status === "completed").length, icon: "CheckCircle2", gradient: "from-emerald-400 to-green-400" },
             { label: "Выручка", value: `${orders.filter(o => o.status === "completed").reduce((sum, o) => sum + o.amount, 0)}₽`, icon: "DollarSign", gradient: "from-cyan-400 to-blue-400" },
           ].map((stat, index) => (
-            <Card key={index} className="border border-white/60 bg-white/40 backdrop-blur-2xl shadow-xl shadow-violet-200/30 hover:shadow-2xl hover:scale-105 transition-all">
+            <Card key={index} className="border border-white/20 bg-white/5 backdrop-blur-2xl shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-105 transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-slate-600 text-sm font-medium">{stat.label}</p>
-                    <p className="text-4xl font-bold text-slate-800 mt-2">{stat.value}</p>
+                    <p className="text-gray-400 text-sm font-medium">{stat.label}</p>
+                    <p className="text-4xl font-bold text-white mt-2">{stat.value}</p>
                   </div>
                   <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center shadow-xl`}>
                     <Icon name={stat.icon as any} className="text-white" size={28} />
@@ -171,19 +177,19 @@ const Admin = () => {
           ))}
         </div>
 
-        <Card className="border border-white/60 bg-white/40 backdrop-blur-2xl shadow-2xl shadow-violet-200/50">
+        <Card className="border border-white/20 bg-white/5 backdrop-blur-2xl shadow-2xl shadow-purple-500/30 animate-slide-up" style={{ animationDelay: '0.2s' }}>
           <CardHeader>
-            <CardTitle className="text-3xl bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent">
+            <CardTitle className="text-3xl bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent animate-gradient">
               Управление заказами
             </CardTitle>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="all" className="w-full">
-              <TabsList className="bg-white/60 backdrop-blur-md border border-white/60 shadow-lg">
-                <TabsTrigger value="all" className="data-[state=active]:bg-white/80">Все</TabsTrigger>
-                <TabsTrigger value="pending" className="data-[state=active]:bg-white/80">Ожидают</TabsTrigger>
-                <TabsTrigger value="processing" className="data-[state=active]:bg-white/80">В обработке</TabsTrigger>
-                <TabsTrigger value="completed" className="data-[state=active]:bg-white/80">Завершены</TabsTrigger>
+              <TabsList className="bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg">
+                <TabsTrigger value="all" className="data-[state=active]:bg-white/20 text-white">Все</TabsTrigger>
+                <TabsTrigger value="pending" className="data-[state=active]:bg-white/20 text-white">Ожидают</TabsTrigger>
+                <TabsTrigger value="processing" className="data-[state=active]:bg-white/20 text-white">В обработке</TabsTrigger>
+                <TabsTrigger value="completed" className="data-[state=active]:bg-white/20 text-white">Завершены</TabsTrigger>
               </TabsList>
               
               <TabsContent value="all" className="mt-6">
@@ -238,25 +244,25 @@ interface OrdersTableProps {
 
 const OrdersTable = ({ orders, onUpdateStatus, getStatusColor, getStatusText }: OrdersTableProps) => {
   return (
-    <div className="bg-white/30 backdrop-blur-md rounded-3xl border border-white/40 shadow-lg overflow-hidden">
+    <div className="bg-white/5 backdrop-blur-xl rounded-3xl border border-white/20 shadow-lg overflow-hidden">
       <Table>
         <TableHeader>
-          <TableRow className="border-white/40 hover:bg-white/20">
-            <TableHead className="text-slate-700 font-semibold">ID</TableHead>
-            <TableHead className="text-slate-700 font-semibold">Alipay ID</TableHead>
-            <TableHead className="text-slate-700 font-semibold">Сумма</TableHead>
-            <TableHead className="text-slate-700 font-semibold">Дата</TableHead>
-            <TableHead className="text-slate-700 font-semibold">Статус</TableHead>
-            <TableHead className="text-slate-700 font-semibold">Действия</TableHead>
+          <TableRow className="border-white/20 hover:bg-white/10">
+            <TableHead className="text-gray-300 font-semibold">ID</TableHead>
+            <TableHead className="text-gray-300 font-semibold">Alipay ID</TableHead>
+            <TableHead className="text-gray-300 font-semibold">Сумма</TableHead>
+            <TableHead className="text-gray-300 font-semibold">Дата</TableHead>
+            <TableHead className="text-gray-300 font-semibold">Статус</TableHead>
+            <TableHead className="text-gray-300 font-semibold">Действия</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {orders.map((order) => (
-            <TableRow key={order.id} className="border-white/40 hover:bg-white/30">
-              <TableCell className="text-slate-800 font-semibold">{order.id}</TableCell>
-              <TableCell className="text-slate-700">{order.alipayId}</TableCell>
-              <TableCell className="text-slate-800 font-bold">{order.amount}₽</TableCell>
-              <TableCell className="text-slate-600">{order.date}</TableCell>
+            <TableRow key={order.id} className="border-white/20 hover:bg-white/10 transition-all duration-300">
+              <TableCell className="text-white font-semibold">{order.id}</TableCell>
+              <TableCell className="text-gray-300">{order.alipayId}</TableCell>
+              <TableCell className="text-white font-bold">{order.amount}₽</TableCell>
+              <TableCell className="text-gray-400">{order.date}</TableCell>
               <TableCell>
                 <Badge className={`${getStatusColor(order.status)} text-white shadow-lg`}>
                   {getStatusText(order.status)}
