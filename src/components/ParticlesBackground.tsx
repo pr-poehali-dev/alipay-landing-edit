@@ -31,13 +31,13 @@ const ParticlesBackground = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const coinCount = 30;
+    const coinCount = 15;
     coinsRef.current = Array.from({ length: coinCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 2,
       vy: (Math.random() - 0.5) * 2 - 1,
-      size: Math.random() * 20 + 25,
+      size: Math.random() * 10 + 15,
       rotation: Math.random() * Math.PI * 2,
       rotationSpeed: (Math.random() - 0.5) * 0.1,
     }));
