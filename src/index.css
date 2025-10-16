@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 220 25% 95%;
-    --foreground: 220 15% 20%;
+    --background: 240 20% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 20%;
+    --card: 240 15% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 20%;
+    --popover: 240 15% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 265 89% 78%;
-    --primary-foreground: 220 15% 20%;
+    --primary: 270 100% 70%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 190 75% 65%;
-    --secondary-foreground: 220 15% 20%;
+    --secondary: 180 100% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 14% 90%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 240 10% 20%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 265 89% 78%;
-    --accent-foreground: 220 15% 20%;
+    --accent: 270 100% 70%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 13% 85%;
-    --input: 220 13% 85%;
-    --ring: 265 89% 78%;
+    --border: 240 10% 25%;
+    --input: 240 10% 25%;
+    --ring: 270 100% 70%;
 
     --radius: 1.5rem;
 
@@ -98,4 +98,92 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
 }
